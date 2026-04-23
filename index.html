@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michael Mmasi | Portfolio (Technical Blueprint)</title>
 
 <style>
@@ -9,19 +10,17 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
 
 body {
-  /* BACKGROUND UPDATE: Engineering schematic on black. Using a placeholder URL for demonstration. */
   background: black url("engineering.jpg") no-repeat center center fixed;
   background-size: cover;
-  color: #c9fafc; /* Very light, technical aqua text for default state */
+  color: #c9fafc;
   min-height: 100vh;
 }
 
-/* Subtler overlay to let the engineering lines through but enhance readability */
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.65); /* Less dark to reveal lines */
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
@@ -43,88 +42,78 @@ body {
   margin: 0 auto;
 }
 
-/* PROFILE IMAGE: Defined by brilliant aqua circle */
+/* =========================================
+   📱 MOBILE OPTIMIZATION (STACKING LAYOUT)
+   ========================================= */
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: 
+      "header"
+      "profile"
+      "about"
+      "skills"
+      "contact";
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 15px;
+  }
+  .profile-pic { width: 160px !important; height: 160px !important; margin: 10px 0; }
+  .card { width: 100% !important; }
+}
+
+/* PROFILE IMAGE */
 .profile-pic {
   grid-area: profile;
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 5px solid #00f5ff; /* Brilliant, electric aqua */
+  border: 5px solid #00f5ff;
   object-fit: cover;
   box-shadow: 0 0 40px rgba(0, 245, 255, 0.7);
 }
 
-/* HEADER: Vibrant cyan title */
-.hud-header { grid-area: header; text-align: center; margin-bottom: 20px; }
-h1 { font-size: 45px; color: #00f5ff; text-shadow: 0 0 12px #00f5ff; letter-spacing: 1px;}
+/* HEADER */
+.hud-header { grid-area: header; text-align: center; }
+h1 { font-size: 35px; color: #00f5ff; text-shadow: 0 0 12px #00f5ff; }
 
-/* =========================
-   🚀 TABS & COLORS (NEW BLENDING SCHEME)
-   ========================= */
+/* CARDS */
 .card {
-  /* DEFAULT STATE: Subtle technical blend */
-  background: rgba(0, 128, 128, 0.3); /* Deep, technical cyan-blue base (low opacity) */
+  background: rgba(0, 128, 128, 0.3);
   padding: 25px;
   border-radius: 12px;
   backdrop-filter: blur(8px);
-  
-  border: 1px solid rgba(0, 245, 255, 0.2); /* Very subtle aqua border */
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.1); /* Minimal glow */
-  
+  border: 1px solid rgba(0, 245, 255, 0.2);
   width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
-  color: #c9fafc; /* Dull-aqua text */
+  transition: 0.3s;
 }
 
-/* Card titles use a solid cyber aqua for readability against blueprint */
-.card h2 { color: #00f5ff; margin-bottom: 10px; font-weight: 500;}
-
-/* HOVER STATE: Vivid blend & increase */
 .card:hover {
-  transform: scale(1.05); /* Enlarge */
-  background: rgba(0, 128, 128, 0.5); /* Deepen cyan base slightly */
-  box-shadow: 0 0 35px rgba(0, 245, 255, 1); /* Brilliant, electric aqua glow */
-  border-color: rgba(0, 245, 255, 1); /* Full brightness border on hover */
-  color: #fff; /* text becomes white on hover for peak contrast */
+  transform: scale(1.03);
+  background: rgba(0, 128, 128, 0.5);
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.8);
+  border-color: rgba(0, 245, 255, 1);
 }
 
 .about-card { grid-area: about; }
 .skills-card { grid-area: skills; }
 .contact-card { grid-area: contact; width: 60%; text-align: center; }
 
-/* CONTACT DETAILS */
-.contact-info { margin: 15px 0; line-height: 1.8; color: inherit;}
-
-/* =========================
-   🚀 SCHEMATIC BUTTONS
-   ========================= */
+/* BUTTONS */
 .button-row { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
-
 .btn {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  color: #c9fafc; /* technical light aqua text */
-  transition: 0.4s ease;
+  cursor: pointer;
+  transition: 0.3s;
   border: 1px solid rgba(0, 245, 255, 0.2);
-  background: rgba(0, 128, 128, 0.3); /* Dull technical base */
+  background: rgba(0, 128, 128, 0.3);
+  color: #c9fafc;
 }
 
-/* Buttons glow on hover */
-.whatsapp:hover {
-  background: #00b4cc; /* Solid medium-cyan */
-  box-shadow: 0 0 20px #00f5ff;
-  border-color: #00f5ff;
-  color: #000; /* text black on hover */
-}
-
-.email:hover {
-  background: #40e0d0; /* Solid turquoise/aqua */
-  box-shadow: 0 0 20px #40e0d0;
-  border-color: #40e0d0;
-  color: #000; /* text black on hover */
-}
+.whatsapp:hover { background: #25D366; color: black; box-shadow: 0 0 15px #25D366; }
+.email:hover { background: #7C4DFF; color: white; box-shadow: 0 0 15px #7C4DFF; }
 
 </style>
 </head>
@@ -139,7 +128,7 @@ h1 { font-size: 45px; color: #00f5ff; text-shadow: 0 0 12px #00f5ff; letter-spac
   </div>
 
   <div class="card about-card">
-    <h2>ABOUT ME</h2>
+    <h2>ABOUT</h2>
     <p>Computer Engineering student passionate about building websites, mobile apps, and engineering design.</p>
   </div>
 
@@ -147,15 +136,12 @@ h1 { font-size: 45px; color: #00f5ff; text-shadow: 0 0 12px #00f5ff; letter-spac
 
   <div class="card skills-card">
     <h2>SKILLS </h2>
-    <p>• Web Development (HTML/CSS/JS)<br>• C / C++<br>• CAD Design</p>
+    <p>• Web Development <br>• C / C++<br>• CAD Design</p>
   </div>
 
   <div class="card contact-card">
-    <h2>CONTACTS </h2>
-    <div class="contact-info">
-        <strong>WhatsApp:</strong> 0682 965 404 <br>
-        <strong>Email:</strong> michaelmmasy03@gmail.com
-    </div>
+    <h2>CONTACTS</h2>
+    <p style="margin:10px 0;">0682 965 404 | michaelmmasy03@gmail.com</p>
     <div class="button-row">
       <a href="https://wa.me/255682965404" class="btn whatsapp" target="_blank">WhatsApp</a>
       <a href="mailto:michaelmmasy03@gmail.com" class="btn email">Email Me</a>
